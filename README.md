@@ -1,74 +1,76 @@
-# 📩 SMS Spam Classifier using Classical NLP
+# 📩 SMS Spam Classifier
 
-An end-to-end Natural Language Processing (NLP) project that classifies SMS messages as **Spam** or **Ham** using classical machine learning techniques.
+An end-to-end Natural Language Processing (NLP) application that classifies SMS messages as **Spam** or **Ham** using Classical NLP techniques and Machine Learning.
 
-The project demonstrates the complete NLP workflow, from raw text preprocessing to model selection and deployment-ready serialization.
-
----
-
-## 🎯 Project Objective
-
-The goal of this project is to build an accurate SMS spam detection system while exploring different text representation techniques and machine learning algorithms.
-
-The project focuses on:
-
-- Data Cleaning
-- Exploratory Data Analysis (EDA)
-- Text Preprocessing
-- Feature Engineering
-- Classical NLP
-- Machine Learning Model Comparison
-- Model Serialization
+The project includes the complete ML workflow—from data preprocessing and exploratory data analysis (EDA) to model training, evaluation, and deployment using Streamlit.
 
 ---
 
-## 📂 Dataset
+## 🌐 Live Demo
 
-The project uses the **SMS Spam Collection Dataset**, which contains over **5,500 real SMS messages** labeled as either:
-
-- **Ham** (Legitimate messages)
-- **Spam** (Unwanted promotional/scam messages)
+🔗 https://roshan-spam-classifier.streamlit.app
 
 ---
 
-## ⚙️ Workflow
+## 📷 Application Preview
 
-The complete pipeline is shown below.
+> <p align="center">
+  <img src="assets/app_preview.png" alt="SMS Spam Classifier" width="900">
+</p>
 
-```
-Raw SMS
-    │
-    ▼
-Data Cleaning
-    │
-    ▼
-Exploratory Data Analysis
-    │
-    ▼
-Text Preprocessing
-    │
-    ▼
-Feature Engineering
-    │
-    ▼
-Bag of Words / TF-IDF
-    │
-    ▼
-Model Training
-    │
-    ▼
-Model Evaluation
-    │
-    ▼
-Best Model Selection
-    │
-    ▼
-Save Model & Vectorizer
+---
+
+## ✨ Features
+
+- Classifies SMS messages as **Spam** or **Ham**
+- Interactive web interface built with Streamlit
+- Text preprocessing pipeline
+- Multiple machine learning models compared
+- Best model saved using Pickle
+- Real-time prediction
+- Displays decision score
+- Fully deployed and publicly accessible
+
+---
+
+## 📂 Project Structure
+
+```text
+sms-spam-classifier/
+│
+├── assets/
+│   └── app_preview.png          # Screenshot of the deployed application
+│
+├── data/
+│   └── spam.csv                 # SMS Spam Collection dataset
+│
+├── models/
+│   ├── spam_model.pkl           # Trained Linear SVM model
+│   └── vectorizer.pkl           # Trained CountVectorizer
+│
+├── notebooks/
+│   └── spam_classifier_cleaned.ipynb   # Complete EDA, preprocessing and model training
+│
+├── app.py                       # Streamlit web application
+├── utils.py                     # Text preprocessing utilities
+├── requirements.txt             # Project dependencies
+├── README.md
+└── .gitignore
 ```
 
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- NLTK
+- Scikit-learn
+- Streamlit
+- Git & GitHub
+
 ---
 
-## 🧹 Text Preprocessing
+## 📖 NLP Pipeline
 
 Each SMS message undergoes the following preprocessing steps:
 
@@ -76,53 +78,20 @@ Each SMS message undergoes the following preprocessing steps:
 - Tokenization
 - Remove non-alphanumeric characters
 - Remove stopwords
-- Porter Stemming
-
-Example:
-
-**Original Message**
-
-```
-Congratulations! You've won $1000.
-```
-
-↓
-
-**Processed Message**
-
-```
-congratul won 1000
-```
+- Apply Porter Stemming
 
 ---
 
-## 📊 Exploratory Data Analysis
+## 📊 Text Representation
 
-The following analyses were performed:
+The following feature extraction techniques were compared:
 
-- Class distribution analysis
-- Character count
-- Word count
-- Sentence count
-- Correlation analysis
-- Word Clouds
-- Most Frequent Spam Words
-- Most Frequent Ham Words
+- Bag of Words (CountVectorizer)
+- TF-IDF (TfidfVectorizer)
 
 ---
 
-## 🧠 Text Representation Techniques
-
-Two feature extraction techniques were compared:
-
-- Bag of Words (BoW)
-- TF-IDF
-
----
-
-## 🤖 Machine Learning Models
-
-The following classifiers were evaluated:
+## 🤖 Models Evaluated
 
 - Multinomial Naive Bayes
 - Logistic Regression
@@ -132,92 +101,73 @@ The following classifiers were evaluated:
 
 ---
 
-## 📈 Model Performance
-
-| Model | Text Representation | Accuracy | Precision | Recall | F1 Score |
-|------|----------------|---------:|----------:|---------:|----------:|
-| Linear SVM | **Bag of Words** | **98.36%** | **99.23%** | **88.97%** | **93.82%** |
-| Linear SVM | TF-IDF | 98.26% | 97.74% | 89.66% | 93.53% |
-| Naive Bayes | Bag of Words | 97.97% | 94.93% | 90.34% | 92.58% |
-| Logistic Regression | Bag of Words | 97.78% | 97.66% | 86.21% | 91.58% |
-| Random Forest | TF-IDF | 96.62% | 99.11% | 76.55% | 86.38% |
-
----
-
 ## 🏆 Best Performing Model
 
-**Vectorizer**
-
-- CountVectorizer (Bag of Words)
-
-**Classifier**
-
-- Linear Support Vector Machine (Linear SVM)
-
-Performance:
-
-- Accuracy: **98.36%**
-- Precision: **99.23%**
-- Recall: **88.97%**
-- F1 Score: **93.82%**
+| Component | Selection |
+|-----------|-----------|
+| Text Representation | Bag of Words |
+| Classifier | Linear SVM |
+| Accuracy | **98.36%** |
+| Precision | **99.23%** |
+| Recall | **88.97%** |
+| F1 Score | **93.82%** |
 
 ---
 
-## 💾 Saved Files
+## 🚀 Installation
 
-The trained artifacts are stored inside the `models/` directory.
+Clone the repository
 
-```
-models/
-├── spam_model.pkl
-└── vectorizer.pkl
+```bash
+git clone https://github.com/roshanchouhan-ai/sms-spam-classifier.git
 ```
 
-These files can be directly used for inference without retraining.
+Move into the project directory
 
----
-
-## 🚀 Technologies Used
-
-- Python
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- NLTK
-- Scikit-learn
-- WordCloud
-- Jupyter Notebook
-
----
-
-## 📁 Project Structure
-
+```bash
+cd sms-spam-classifier
 ```
-spam-classifier/
-│
-├── data/
-├── models/
-├── notebooks/
-├── requirements.txt
-├── README.md
-└── .gitignore
+
+Install the required packages
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application
+
+```bash
+streamlit run app.py
 ```
 
 ---
 
-## 🔮 Future Improvements
+## 📌 Example Predictions
 
-Some possible extensions to this project include:
+| SMS Message | Prediction |
+|-------------|------------|
+| Hey, are we meeting tomorrow? | ✅ Ham |
+| URGENT! Claim your prize now! | 🚨 Spam |
+| Congratulations! You've won a FREE ticket! | 🚨 Spam |
 
-- Hyperparameter tuning
-- Streamlit web application
-- Transformer-based models (BERT)
-- Larger and more recent spam datasets
-- Model deployment on the cloud
+---
+
+## 📈 Future Improvements
+
+- Add probability/confidence visualization
+- Support multilingual SMS classification
+- Deploy using Docker
+- Experiment with Word2Vec, FastText and BERT embeddings
+- Compare with Deep Learning models
 
 ---
 
 ## 👨‍💻 Author
 
-Roshan Chouhan
+**Roshan Chouhan**
+
+GitHub: https://github.com/roshanchouhan-ai
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
